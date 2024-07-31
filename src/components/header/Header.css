@@ -1,0 +1,27 @@
+.header__toolbar {
+  display: flex;
+  justify-content: space-between !important;
+  padding: 5px;
+  box-shadow: none !important;
+  max-width: 1450px ;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.MuiAppBar-root {
+  height: 64px !important;
+  box-shadow: none !important;
+}
+
+@media only screen and (max-width: 900px) {
+  .header__toolbar {
+    background-color: #fff;
+  }
+  .MatButton > span {
+    color: #1976d2 !important;
+  }
+  .MatMarketButton,
+  .MatMarketButton-Blog {
+    display: none !important;
+  }
+}
