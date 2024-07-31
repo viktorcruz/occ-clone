@@ -1,16 +1,13 @@
 import React from "react";
-import { Card, CardContent, Typography, Box, styled, useMediaQuery } from '@mui/material'
+import { CardContent, Typography, Box, useMediaQuery } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Link } from "react-router-dom";
 import styledComp from 'styled-components'
+import { MotionCard } from '../common/StyledComponents'
 
 const StyledLink = styledComp(Link)`
     text-decoration: none;
     color: inherit;
-`
-
-const MatCard = styled(Card)`
-    margin-bottom: 16px;
 `
 const company = '/assets/svg/lion.svg'
 
@@ -19,6 +16,7 @@ const company = '/assets/svg/lion.svg'
 const JobsCard = ({ job, onJobSelect }) => {
     const isMobile = useMediaQuery(`(max-width: 900px)`)
     const cardContent = (
+
         <CardContent >
             <Typography style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginBottom: '10px' }}>
                 Hoy <CheckCircleIcon fontSize="13" style={{ marginLeft: '10px', marginRight: '10px', color: '#F13465' }} />
@@ -49,7 +47,11 @@ const JobsCard = ({ job, onJobSelect }) => {
     )
 
     return (
-        <MatCard onClick={() => onJobSelect(job)}>
+        <MotionCard
+            whileHover={{ scale: 1.02, boxShadow: '0 10px 15px rgba(0,0,0,0.13' }}
+            style={{ maxWidth: 500, margin: '5px' }}
+            onClick={() => onJobSelect(job)}
+        >
             {isMobile ? (
                 <StyledLink to={`/jobs/${job.id}`} job={job} >
                     {cardContent}
@@ -57,7 +59,7 @@ const JobsCard = ({ job, onJobSelect }) => {
             ) : (
                 cardContent
             )}
-        </MatCard>
+        </MotionCard>
     )
 }
 

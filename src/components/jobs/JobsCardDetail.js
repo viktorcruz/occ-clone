@@ -1,9 +1,9 @@
 import React from "react";
-import { Typography, Box, AppBar, Toolbar, Button, Divider } from "@mui/material";
+import { Typography, Box, AppBar, Toolbar, Divider } from "@mui/material";
 import CssBaseline from '@mui/material/CssBaseline';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import { styled } from '@mui/material/styles'
-
+import CustomButton from "../common/CustomButton";
 
 const MatAppBar = styled(AppBar)(() => ({
     position: 'relative',
@@ -24,12 +24,6 @@ const MatToolbar = styled(Toolbar)(({ theme }) => ({
     },
 }));
 
-const MatButton = styled(Button)(({ theme }) => ({
-    backgroundColor: '#F13465 !important',
-    color: theme.palette.common.white,
-    textTransform: 'capitalize',
-}))
-
 
 const JobsCardDetail = ({ job }) => {
     const { details } = job
@@ -42,6 +36,8 @@ const JobsCardDetail = ({ job }) => {
                     <Typography variant="h6" component='div'>
                         {job.title}
                     </Typography>
+
+
                     <Typography variant="h6" component='div'>
                         {job.company}
                     </Typography>
@@ -51,9 +47,16 @@ const JobsCardDetail = ({ job }) => {
                     <Typography variant='body1' component='div' style={{ margin: '0 0 9px 0' }}>
                         Empresa verificada <VerifiedIcon />
                     </Typography>
-                    <MatButton variant='contained' >
-                        Postularme
-                    </MatButton>
+
+                    <CustomButton
+                        variant='contained'
+                        background='#F13465'
+                        title='Postularme'
+                        color='#fff'
+                        width='120px'
+                        height='30'
+                        matIcon='null'
+                    />
                 </MatToolbar>
             </MatAppBar>
             <Box component='main' sx={{ p: 3 }}>

@@ -2,10 +2,11 @@ import React from "react";
 import { Button } from "@mui/material";
 import { darken } from '@mui/material/styles';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 
 const CustomButton = ({ variant, title, size, background, color, positionIcon, matIcon: MatIcon, width, height }) => {
     const customStyles = {
-        border: background || '1px solid blue',
+        border: background || `1px solid ${color}`,
         background: background,
         color: color || '#fff',
         width: width || '100%',
@@ -21,7 +22,7 @@ const CustomButton = ({ variant, title, size, background, color, positionIcon, m
 
     return (
         <Button variant={variant} sx={customStyles}>
-            {positionIcon === 'start' && <MatIcon style={{ marginRight: 1 }} />}
+            {positionIcon === 'start' && <MatIcon style={{ marginRight: 10 }} />}
             {title}
             {positionIcon === 'end' && <MatIcon style={{ marginLeft: 1 }} />}
         </Button>

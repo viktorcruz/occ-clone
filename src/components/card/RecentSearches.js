@@ -1,12 +1,13 @@
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, CardContent, Typography } from "@mui/material";
 import React from "react";
 import SearchIcon from '@mui/icons-material/Search'
+import { MotionCard } from '../common/StyledComponents'
 
 const RecentSearches = ({ recentSearches }) => {
     return (
         <div style={{ display: 'flex' }}>
             {recentSearches.map((item, index) => (
-                <Card key={index} style={{ margin: 15, width: '100%' }}>
+                <MotionCard whileHover={{ scale: 1.02, boxShadow: '0 10px 15px rgba(0,0,0,0.13' }} style={{maxWidth: 400, margin: '20px' }}>
                     <Box>
                         <CardContent style={{ display: 'flex', flexDirection: 'row', justifyItems: 'center' }}>
                             <Typography component='div' style={{ padding: 10, alignContent: 'center' }}>
@@ -19,7 +20,7 @@ const RecentSearches = ({ recentSearches }) => {
 
                         </CardContent>
                     </Box>
-                </Card>
+                </MotionCard>
             ))}
         </div>
     )
